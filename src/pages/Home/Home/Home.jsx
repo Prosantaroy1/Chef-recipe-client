@@ -1,10 +1,11 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
+import RecipeCollections from '../../RecipeCollections/RecipeCollections';
 
 const Home = () => {
     return (
         <Container>
-            <h2>this is home pages</h2>
+            <RecipeCollections/>
         </Container>
     );
 };
