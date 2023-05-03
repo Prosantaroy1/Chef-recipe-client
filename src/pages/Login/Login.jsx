@@ -2,13 +2,16 @@ import React from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import NavBar from '../Share/NavBar/NavBar';
 import { Link } from 'react-router-dom';
+import Footer from '../Share/Footer/Footer';
 
 const Login = () => {
 
     return (
+        <div>
+        <NavBar/>
+
         <Container>
-            <NavBar/>
-              <h4 className='text-center'>Please Login Your Acoount</h4>
+              <h4 className='text-center mt-5'>Please Login Your Acoount</h4>
 
               <Form className='w-25 mx-auto border p-3 rounded-2'>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -38,7 +41,10 @@ const Login = () => {
 
                 </Form.Text>
             </Form>
-        </Container>
+            
+          </Container>
+          <Footer/>
+        </div>
     );
 };
 
