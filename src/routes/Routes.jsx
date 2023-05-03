@@ -4,6 +4,8 @@ import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import About from "../pages/About/About";
+import ChefDetails from "../pages/ChefDetails/ChefDetails";
+import ChefCard from "../pages/ChefCard/ChefCard";
 
 
 
@@ -20,7 +22,7 @@ const router = createBrowserRouter([
             {
                 path: '/about',
                 element: <About/>
-            }
+            } 
             
         ]
        
@@ -32,7 +34,14 @@ const router = createBrowserRouter([
     {
         path: 'register',
         element: <Register/>
+    },
+    
+    {
+        path: '/services/:id',
+        element: <ChefDetails/>
     }
+    
+      
 
 ])
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Card, Col, Container, Row } from 'react-bootstrap';
+import { Button, Card, Container  } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const ChefCard = () => {
   ///data stated
@@ -13,8 +14,8 @@ const ChefCard = () => {
     //console.log(servicesData);
     
     return (
-        <Container>
-                <h4 className='text-center'>Our Chef Service Details</h4>
+        <Container className='mt-5'>
+                <h2 className='text-center mt-4 mb-4'>Our Chef Service Details</h2>
                 <div className='d-flex gap-4 flex-wrap justify-content-center'>
                    {
                     servicesData[0]?.services?.map((service)=>(
@@ -26,7 +27,9 @@ const ChefCard = () => {
                                  <Card.Text>
                                     {service?.details}
                                  </Card.Text>
-                                 <Button variant="primary">Go somewhere</Button>
+                                 <Link to={`/services/${service?.id}`}>
+                                    <Button variant="primary">Go Details</Button>
+                                 </Link>
                                </Card.Body>
                             </Card>
                         </div>

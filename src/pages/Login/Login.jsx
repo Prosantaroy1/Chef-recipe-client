@@ -1,10 +1,35 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import NavBar from '../Share/NavBar/NavBar';
-import { Link } from 'react-router-dom';
+import { Link,  useNavigate } from 'react-router-dom';
 import Footer from '../Share/Footer/Footer';
+import { AuthContext } from '../../provider/AuthProvider/AuthProvider';
 
 const Login = () => {
+
+    const { signIn }= useContext(AuthContext);
+
+     //login sucessfullyb hole home niye jaoyar jonno
+     const navigate = useNavigate();
+    
+
+   ////signin
+    const handleSignIn = event=>{
+        event.preventDefault();
+        const from = event.target;
+        const email = from.email.value;
+        const password = from.password.value;
+        //
+        signIn(email, password)
+         .then(result=>{
+             const logined = result.user;
+             console.log(logined);
+             navigate('/')
+         })
+         .catch(error=>{
+             console.log(error);
+         })
+    }
 
     return (
         <div>
@@ -13,7 +38,7 @@ const Login = () => {
         <Container>
               <h4 className='text-center mt-5'>Please Login Your Acoount</h4>
 
-              <Form className='w-25 mx-auto border p-3 rounded-2'>
+              <Form className='w-25 mx-auto border p-3 rounded-2' onSubmit={handleSignIn}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control type="email" name='email' placeholder="Enter email" required />

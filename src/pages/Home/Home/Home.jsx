@@ -7,11 +7,15 @@ const Home = () => {
     return (
         <Container>
             <RecipeCollections/>
-            <div className='mt-4'>
-              <ChefCard/>
-            </div>
+            <ChefCard/>
         </Container>
     );
 };
 
 export default Home;
+
+/* 
+<div className='mt-4'>
+              <ChefCard/>
+            </div>
+*/

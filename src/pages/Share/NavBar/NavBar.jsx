@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../provider/AuthProvider/AuthProvider';
 
 const NavBar = () => {
+    
+  const {user, logOut} = useContext(AuthContext);
+
+  const handleLogOut = ()=>{
+    logOut()
+     .then()
+     .catch(error =>{
+       console.log(error)
+     })
+  }
     return (
         <div class="p-2 bg-light  " >
          <Container>
@@ -19,14 +30,20 @@ const NavBar = () => {
                         <Link to="/about" className='text-decoration-none text-dark'>About</Link>
                      </Nav.Link>
                      <Nav.Link href="#pricing" className='fs-4 fw-semibold'>
-                        <Link to="/about" className='text-decoration-none text-dark'>Contact</Link>
+                        <Link to="/Services" className='text-decoration-none text-dark'>Services</Link>
                      </Nav.Link>
                    </Nav>
                    <Nav className='gap-2'>
-                     <Button variant="secondary">Profile</Button>{' '}
-                          <Link to="/login">
-                             <Button variant="secondary">Login</Button>{' '}
-                          </Link>
+                      {user && <p className='text-dark'>{user.email}</p>}
+    
+                        {
+                         user ?
+                           <Button onClick={handleLogOut} variant="secondary">Logout</Button> :
+                           <Link to="/login">
+                              <Button variant="secondary">Login</Button>{' '}
+                           </Link>
+                        }
+                    
                    </Nav>
                  </Navbar.Collapse>
                </Container>
