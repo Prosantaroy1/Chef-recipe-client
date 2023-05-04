@@ -7,7 +7,7 @@ const NavBar = () => {
     
   const {user, logOut} = useContext(AuthContext);
 
-  const handleLogOut = ()=>{
+  const handleLogOut = () =>{
     logOut()
      .then()
      .catch(error =>{
@@ -31,8 +31,11 @@ const NavBar = () => {
                      </Nav.Link>
                      
                    </Nav>
-                   <Nav className='gap-2'>
-                      {user && <p className='text-dark'>{user.email}</p>}
+                   <Nav className='gap-3'>
+                      {user && <div>
+                          <img src={user.photoURL} data-bs-toggle="tooltip" data-bs-placement="top" title={user.displayName}
+                           className="rounded-circle" style={{width: '50px', height: '50px'}}/>
+                        </div>}
     
                         {
                          user ?

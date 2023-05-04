@@ -6,42 +6,56 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider/AuthProvider';
 
 
+
 const Register = () => {
 
-   //const [error, setError] = useState([]);
+   const [error, setError] = useState('');
    //
-   const { createUser } = useContext(AuthContext);
+   const { createUser, updateUserData} = useContext(AuthContext);
 
    const handleCreated = event => {
      event.preventDefault();
 
      const from = event.target;
      const name = from.name.value;
-     const photoURL = from.photoURL.value;
+     const photo = from.photo.value;
      const email = from.email.value;
      const password = from.password.value;
-     console.log(name, email,  password, photoURL)  
+    // console.log(name, email,  password, photo)  
      //created user
      createUser(email, password)
       .then(result=>{
          const createdUser = result.user;
          console.log(createdUser);
+         updateUserData(name, photo)
+         from.reset('')
       })
-      .catch(error=>{
+      .catch(error=>{ 
          console.log(error);
       })
-
-   }
-  
+      if(password.length < 6){
+        setError('password must be grater then 6 char')
+        return;
+      }
+      updateUserData(name, photo)
+       .then(()=>{
+         console.log('user profile update')
+       })
+       .then(error=>{
+         console.log(error)
+       })
+    }
+    //update profile name and url 
+   
 
 
     return (  
         <div>
         <NavBar/>
           <Container>
-               <h4 className='text-center'>Please Created Account</h4>
-               
-              <Form className='w-50 mx-auto border p-3 rounded-2' onSubmit={handleCreated}>
+              
+              <Form className='w-50 mx-auto border bg-secondary mt-4 text-light p-3 rounded-2' onSubmit={handleCreated}>
+              <h5 className='text-center'>Please Created Account</h5>
                <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Name</Form.Label>
                     <Form.Control type="name" name='name' placeholder="Enter name" required />
@@ -49,7 +63,7 @@ const Register = () => {
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Photo Url</Form.Label>
-                    <Form.Control type="text" name='photoURL' placeholder="Enter photo url" required />
+                    <Form.Control type="text" name='photo' placeholder="Enter photo url" required />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -66,17 +80,14 @@ const Register = () => {
                     <Form.Check type="checkbox" label="Check me out" />
                 </Form.Group>
                 <Button variant="primary" type="submit" className='w-100'>
-                    Login
+                    SignIn
                 </Button>
                 <br />
-                <Form.Text className="text-secondary">
-                    Don't Have an Account? <Link to="/login">Login</Link>
-                </Form.Text>
-                <Form.Text className="text-success">
-
+                <Form.Text className="text-light fw-bold">
+                    Already Have a Account? <Link to="/login" className='text-dark pe-2 fs-6'>Login</Link>
                 </Form.Text>
                 <Form.Text className="text-danger">
-
+                    <p>{error}</p>
                 </Form.Text>
              </Form>
           </Container>
@@ -86,3 +97,4 @@ const Register = () => {
 };
 
 export default Register;
+

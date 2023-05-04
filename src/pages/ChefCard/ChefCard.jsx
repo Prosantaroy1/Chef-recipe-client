@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Card, Container  } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { AiFillLike } from 'react-icons/ai';
 
 const ChefCard = () => {
   ///data stated
     const[servicesData, setServicesData] = useState([]);
     //data fetch load
      useEffect(()=>{
-        fetch('http://localhost:5000/chef')
+        fetch('https://assienment-10-server.vercel.app/chef')
          .then(res => res.json())
          .then(data=> setServicesData(data))
      },[]);
@@ -23,12 +24,16 @@ const ChefCard = () => {
                             <Card style={{ width: '21.7rem' }}>
                                <Card.Img variant="top" src={service?.img} />
                                <Card.Body>
-                                 <Card.Title>{service?.name}</Card.Title>
-                                 <Card.Text>
-                                    {service?.details}
-                                 </Card.Text>
+                                 <Card.Title className='fw-bold'>{service?.name}</Card.Title>
+                                 <div className='d-flex justify-content-between align-items-center'>
+                                    <p className='fw-semibold'>
+                                       <AiFillLike className='w-10 fs-4'/> {service?.total_view}
+                                    </p>
+                                    <p className='fw-semibold'> Recipes Number: {service?.recipes_number}</p>
+                                 </div>
+                                 <p className='fw-semibold'>Work: {service?.experience}</p>
                                  <Link to={`/services/${service?.id}`}>
-                                    <Button variant="primary">Go Details</Button>
+                                    <Button variant="primary" className='w-100'>Go Details</Button>
                                  </Link>
                                </Card.Body>
                             </Card>

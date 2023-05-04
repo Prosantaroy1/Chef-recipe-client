@@ -5,7 +5,8 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import About from "../pages/About/About";
 import ChefDetails from "../pages/ChefDetails/ChefDetails";
-import ChefCard from "../pages/ChefCard/ChefCard";
+import PrivetRoutes from "./PrivetRoutes";
+
 
 
 
@@ -38,7 +39,7 @@ const router = createBrowserRouter([
     
     {
         path: '/services/:id',
-        element: <ChefDetails/>
+        element: <PrivetRoutes><ChefDetails/></PrivetRoutes>
     }
     
       
