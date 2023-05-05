@@ -21,18 +21,16 @@ const AuthProvider = ({children}) => {
      }
      //Github login
      const GithubLogin = ()=>{
-         return signInWithPopup(auth, providers)
+         return signInWithPopup(auth, provider)
         
      }
     //createduser
     const createUser = (email, password)=> {
-        return createUserWithEmailAndPassword(auth, email, password)
-       
+        return createUserWithEmailAndPassword(auth, email, password)   
      }
     ///login user
     const signIn = (email, password)=> {
-        return signInWithEmailAndPassword(auth, email, password);
-       
+        return signInWithEmailAndPassword(auth, email, password);    
      }
     ///updated profilename and photourl
      const updateUserData = (name, photo)=>{
@@ -50,8 +48,7 @@ const AuthProvider = ({children}) => {
          useEffect(()=>{
           const unsubscribe= onAuthStateChanged(auth, loggedUser=>{
             console.log('logged in user inside auth obbser', loggedUser)
-            setUser(loggedUser)
-            
+            setUser(loggedUser)         
           })
     
           return ()=>{unsubscribe();}

@@ -4,13 +4,12 @@ import NavBar from '../Share/NavBar/NavBar';
 import { Link,  useLocation,  useNavigate } from 'react-router-dom';
 import Footer from '../Share/Footer/Footer';
 import { AuthContext } from '../../provider/AuthProvider/AuthProvider';
+import { AiFillGoogleSquare, AiFillGithub } from "react-icons/ai";
 
 
 const Login = () => {
 
     const { signIn, GoogleSignIn, GithubLogin }= useContext(AuthContext);
-    //
-   // const [error, setError] = useState('');
 
      //login sucessfullyb hole home niye jaoyar jonno
      const navigate = useNavigate();
@@ -21,7 +20,6 @@ const Login = () => {
    ////signin
     const handleSignIn = event=>{
         event.preventDefault();
-        event.target.reset();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
@@ -31,12 +29,12 @@ const Login = () => {
              const logined = result.user;
              console.log(logined);
              navigate(from, {replace: true})
-             form.reset('')
+             event.target.reset();
          })
          .catch(error=>{
              console.log(error);
          })
-        
+            
     }
     //google signin
     const hadleGoogle = () =>{
@@ -92,14 +90,17 @@ const Login = () => {
                 </Form.Text>
                 <hr/>
                 <Form.Text className="text-success">
-                    <div className='d-flex gap-4 mt-2 '>
-                        <button type="button" class="btn btn-primary w-50" onClick={hadleGoogle}>
-                            Google login
+                    <div className='d-flex  gap-2 mt-2 '>
+                        <button type="button" class="btn btn-dark w-100" onClick={hadleGoogle}>
+                             <AiFillGoogleSquare className='fs-1'/>
                         </button>
-                        <button type="button" class="btn btn-primary w-50" onClick={handleGithub}>
-                            GitHub login
+                        <button type="button" class="btn btn-danger w-100" onClick={handleGithub}>
+                            <AiFillGithub className='fs-1'/>
                         </button>
                     </div>
+                </Form.Text>
+                <Form.Text>
+
                 </Form.Text>
             </Form>
             

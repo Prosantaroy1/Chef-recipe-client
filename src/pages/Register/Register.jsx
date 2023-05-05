@@ -15,7 +15,6 @@ const Register = () => {
 
    const handleCreated = event => {
      event.preventDefault();
-     event.target.reset();
      const from = event.target;
      const name = from.name.value;
      const photo = from.photo.value;
@@ -29,11 +28,12 @@ const Register = () => {
          console.log(createdUser);
          updateUserData(name, photo)
          from.reset('')
-         
+         event.target.reset();
       })
       .catch(error=>{ 
          console.log(error);
       })
+      
       if(password.length < 6){
         setError('password must be grater then 6 char')
         return;
@@ -46,9 +46,7 @@ const Register = () => {
          console.log(error)
        })
     }
-    //update profile name and url 
    
-
 
     return (  
         <div>
@@ -86,7 +84,7 @@ const Register = () => {
                     Already Have a Account? <Link to="/login" className='text-dark pe-2 fs-6'>Login</Link>
                 </Form.Text>
                 <Form.Text className="text-danger fs-5">
-                    <p className='text-danger fw-bold'>{error}</p>
+                    <p className='text-danger'>{error}</p>
                 </Form.Text>
              </Form>
          
