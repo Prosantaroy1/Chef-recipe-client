@@ -21,7 +21,7 @@ const AuthProvider = ({children}) => {
      }
      //Github login
      const GithubLogin = ()=>{
-         return signInWithPopup(auth, provider)
+         return signInWithPopup(auth, providers)
         
      }
     //createduser
