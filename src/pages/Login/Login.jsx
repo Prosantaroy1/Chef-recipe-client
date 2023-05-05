@@ -5,9 +5,12 @@ import { Link,  useLocation,  useNavigate } from 'react-router-dom';
 import Footer from '../Share/Footer/Footer';
 import { AuthContext } from '../../provider/AuthProvider/AuthProvider';
 
+
 const Login = () => {
 
     const { signIn, GoogleSignIn, GithubLogin }= useContext(AuthContext);
+    //
+   // const [error, setError] = useState('');
 
      //login sucessfullyb hole home niye jaoyar jonno
      const navigate = useNavigate();
@@ -18,6 +21,7 @@ const Login = () => {
    ////signin
     const handleSignIn = event=>{
         event.preventDefault();
+        event.target.reset();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
@@ -32,6 +36,7 @@ const Login = () => {
          .catch(error=>{
              console.log(error);
          })
+        
     }
     //google signin
     const hadleGoogle = () =>{

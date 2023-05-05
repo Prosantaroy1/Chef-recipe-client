@@ -13,21 +13,26 @@ const providers = new GithubAuthProvider();
 const AuthProvider = ({children}) => {
     //user
     const [user, setUser] = useState(null);
+
     //google login
      const GoogleSignIn = () =>{
-         return signInWithPopup(auth, provider)
+         return signInWithPopup(auth, provider);
+         
      }
      //Github login
      const GithubLogin = ()=>{
-         return signInWithPopup(auth, provider)
+         return signInWithPopup(auth, providers)
+        
      }
     //createduser
     const createUser = (email, password)=> {
         return createUserWithEmailAndPassword(auth, email, password)
+       
      }
     ///login user
     const signIn = (email, password)=> {
-        return signInWithEmailAndPassword(auth, email, password)
+        return signInWithEmailAndPassword(auth, email, password);
+       
      }
     ///updated profilename and photourl
      const updateUserData = (name, photo)=>{
@@ -46,6 +51,7 @@ const AuthProvider = ({children}) => {
           const unsubscribe= onAuthStateChanged(auth, loggedUser=>{
             console.log('logged in user inside auth obbser', loggedUser)
             setUser(loggedUser)
+            
           })
     
           return ()=>{unsubscribe();}

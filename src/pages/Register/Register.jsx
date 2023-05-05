@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Button, Container, Form } from 'react-bootstrap';
+import { Button,  Form } from 'react-bootstrap';
 import NavBar from '../Share/NavBar/NavBar';
 import Footer from '../Share/Footer/Footer';
 import { Link } from 'react-router-dom';
@@ -15,7 +15,7 @@ const Register = () => {
 
    const handleCreated = event => {
      event.preventDefault();
-
+     event.target.reset();
      const from = event.target;
      const name = from.name.value;
      const photo = from.photo.value;
@@ -29,6 +29,7 @@ const Register = () => {
          console.log(createdUser);
          updateUserData(name, photo)
          from.reset('')
+         
       })
       .catch(error=>{ 
          console.log(error);
@@ -52,8 +53,6 @@ const Register = () => {
     return (  
         <div>
         <NavBar/>
-          <Container>
-              
               <Form className='w-50 mx-auto border bg-secondary mt-4 text-light p-3 rounded-2' onSubmit={handleCreated}>
               <h5 className='text-center'>Please Created Account</h5>
                <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -80,18 +79,18 @@ const Register = () => {
                     <Form.Check type="checkbox" label="Check me out" />
                 </Form.Group>
                 <Button variant="primary" type="submit" className='w-100'>
-                    SignIn
+                    Register
                 </Button>
                 <br />
                 <Form.Text className="text-light fw-bold">
                     Already Have a Account? <Link to="/login" className='text-dark pe-2 fs-6'>Login</Link>
                 </Form.Text>
-                <Form.Text className="text-danger">
-                    <p>{error}</p>
+                <Form.Text className="text-danger fs-5">
+                    <p className='text-danger fw-bold'>{error}</p>
                 </Form.Text>
              </Form>
-          </Container>
-         <Footer/>
+         
+          <Footer/>
         </div>
     );
 };

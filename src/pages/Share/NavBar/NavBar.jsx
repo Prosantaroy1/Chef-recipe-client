@@ -29,7 +29,9 @@ const NavBar = () => {
                      <Nav.Link href="#pricing" className='fs-4 fw-semibold'>
                         <Link to="/about" className='text-decoration-none text-dark'>About</Link>
                      </Nav.Link>
-                     
+                     <Nav.Link href="#pricing" className='fs-4 fw-semibold'>
+                        <Link to='/'  className='text-decoration-none text-dark'>Product</Link>
+                     </Nav.Link>
                    </Nav>
                    <Nav className='gap-3'>
                       {user && <div>

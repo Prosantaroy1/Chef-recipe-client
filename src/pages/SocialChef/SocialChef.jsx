@@ -1,41 +1,76 @@
 import React from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
-import { BsFillPersonPlusFill, BsFillCupHotFill, BsFillEnvelopeAtFill, BsFillImageFill } from "react-icons/bs";
+import Marquee from "react-fast-marquee";
+import client1 from '../../../src/assets/Client img/member-1.png'
+import client2 from '../../../src/assets/Client img/member-2.png'
+import client3 from '../../../src/assets/Client img/member-3.png'
+import client4 from '../../../src/assets/Client img/member-4.png'
+import client5 from '../../../src/assets/Client img/photo2.png'
+import client6 from '../../../src/assets/Client img/photo3.png'
 
 const SocialChef = () => {
     return (
         <Container className='mt-5'>
-            <h4 className='text-center text-dark fw-bold fs-'>SocialChef in numbers</h4>
-           <Row>
-              <Col xs={12} lg={3} md={6}>
-                 <Card className='d-flex text-light flex-column justify-content-center align-items-center bg-secondary'>
-                    <BsFillPersonPlusFill className='fs-1 mt-2'/>
-                     <h4 className='mt-3 mb-2'>37</h4>
-                     <h5>members</h5>
-                 </Card>
+            <h4 className='text-center text-dark fw-bold fs-2 mb-2'>
+              Best Client and Daliy Order Product
+            </h4>
+         <Marquee>
+          
+              <Col  lg={3} md={6} className='pe-3'>
+                  <Card border="secondary" style={{ width: '13rem' }}>
+                     <div className='d-flex mt-2 flex-column justify-content-center align-items-center gap-2'>
+                       <img src={client1} className='w-50 rounded-circle'/>
+                       <h4 className='fw-bold text-danger'>Borsha Pal</h4>
+                       <p className='fw-semibold text-secondary'>Mombai, India</p>
+                     </div>
+                  </Card>
               </Col>
-              <Col xs={12} lg={3} md={6}>
-                 <Card className='d-flex text-light flex-column justify-content-center align-items-center bg-secondary'>
-                    <BsFillCupHotFill className='fs-1 mt-2'/>
-                     <h4 className='mt-3 mb-2'>20</h4>
-                     <h5>recipes</h5>
-                 </Card>
+              <Col  lg={3} md={6} className='pe-3'>
+                <Card border="secondary" style={{ width: '13rem' }}>
+                     <div className='d-flex mt-2 flex-column justify-content-center align-items-center gap-2'>
+                       <img src={client2} className='w-50 rounded-circle'/>
+                       <h4 className='fw-bold text-danger'>Apu Chowdry</h4>
+                       <p className='fw-semibold text-secondary'>Dhaka , Banglaseh</p>
+                     </div>
+                  </Card>
               </Col>
-              <Col xs={12} lg={3} md={6}>
-                 <Card className='d-flex text-light flex-column justify-content-center align-items-center bg-secondary'>
-                    <BsFillEnvelopeAtFill className='fs-1 mt-2'/>
-                     <h4 className='mt-3 mb-2'>500</h4>
-                     <h5>comment</h5>
-                 </Card>
+              <Col  lg={3} md={6} className='pe-3'>
+                <Card border="secondary" style={{ width: '13rem' }}>
+                     <div className='d-flex mt-2 flex-column justify-content-center align-items-center gap-2'>
+                       <img src={client3} className='w-50 rounded-circle'/>
+                       <h4 className='fw-bold text-danger'>Mina Rani</h4>
+                       <p className='fw-semibold text-secondary'>Dinajpur, Banglaseh</p>
+                     </div>
+                  </Card>
               </Col>
-              <Col xs={12} lg={3} md={6}>
-                 <Card className='d-flex text-light flex-column justify-content-center align-items-center bg-secondary'>
-                    <BsFillImageFill className='fs-1 mt-2'/>
-                     <h4 className='mt-3 mb-2'>57</h4>
-                     <h5>photo</h5>
-                 </Card>
+              <Col   lg={3} md={6} className='pe-3'>
+                 <Card border="secondary" style={{ width: '13rem' }}>
+                     <div className='d-flex mt-2 flex-column justify-content-center align-items-center gap-2'>
+                       <img src={client4} className='w-50 rounded-circle'/>
+                       <h4 className='fw-bold text-danger'>Bipul Gupta</h4>
+                       <p className='fw-semibold text-secondary'>Mombai, India</p>
+                     </div>
+                  </Card>
               </Col>
-           </Row>
+              <Col   lg={3} md={6} className='pe-3'>
+                 <Card border="secondary" style={{ width: '13rem' }}>
+                     <div className='d-flex mt-2 flex-column justify-content-center align-items-center gap-2'>
+                       <img src={client5} className='w-50 rounded-circle'/>
+                       <h4 className='fw-bold text-danger'>Omit Sen</h4>
+                       <p className='fw-semibold text-secondary'>Kolkata, India</p>
+                     </div>
+                  </Card>
+              </Col>
+              <Col   lg={3} md={6} className='pe-3'>
+                 <Card border="secondary" style={{ width: '13rem' }}>
+                     <div className='d-flex mt-2 flex-column justify-content-center align-items-center gap-2'>
+                       <img src={client6} className='w-50 rounded-circle'/>
+                       <h4 className='fw-bold text-danger'>Shamim Hosen</h4>
+                       <p className='fw-semibold text-secondary'>Mirpur, Dhaka</p>
+                     </div>
+                  </Card>
+              </Col>
+         </Marquee>
         </Container>
     );
 };
