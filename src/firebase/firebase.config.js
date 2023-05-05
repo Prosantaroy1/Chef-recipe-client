@@ -4,13 +4,14 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+//console.log('secret', import.meta.env.VITE_APIKEY)
 const firebaseConfig = {
-  apiKey: "AIzaSyDIVELQ-ePWGWmMfT39rtnDu8AOKLYKu3o",
-  authDomain: "chef-racepi-project.firebaseapp.com",
-  projectId: "chef-racepi-project",
-  storageBucket: "chef-racepi-project.appspot.com",
-  messagingSenderId: "596259815494",
-  appId: "1:596259815494:web:43e64025118e3ff1cb4a47"
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AuthDomain,
+  projectId: import.meta.env.VITE_ProjectId,
+  storageBucket: import.meta.env.VITE_StorageBucket,
+  messagingSenderId: import.meta.env.VITE_MessagingSenderId,
+  appId: import.meta.env.VITE_AppId
 };
 
 // Initialize Firebase
